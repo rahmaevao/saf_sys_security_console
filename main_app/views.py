@@ -16,9 +16,8 @@ class HomeListView(ListView):
         return context
 
 
-def about(request):
-    return render(request, "main_app/about.html")
-
-
-def contact(request):
-    return render(request, "main_app/contact.html")
+all_premises_view = HomeListView.as_view(
+    queryset=Premises.objects.order_by,
+    context_object_name="all_premises",
+    template_name="main_app/home.html",
+)
