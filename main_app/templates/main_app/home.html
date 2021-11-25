@@ -1,0 +1,29 @@
+{% extends "main_app/layout.html" %}
+{% block title %}
+Home
+{% endblock %}
+{% block content %}
+<h1>All premises</h1>
+
+{% if all_premises %}
+        <table class="all_premises">
+            <thead>
+            <tr>
+                <th>Premises</th>
+                <th>State</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for premises in all_premises %}
+                <tr>
+                    <td>{{ premises.address }}</td>
+                    <td>{{ premises.state }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No premises in database. Please contact the administrator</p>
+    {% endif %}
+
+{% endblock %}
