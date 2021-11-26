@@ -1,9 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-from django.utils.timezone import datetime
-import re
 from django.views.generic import ListView
-
 from main_app.models import Premises
 
 
@@ -21,3 +17,14 @@ all_premises_view = HomeListView.as_view(
     context_object_name="all_premises",
     template_name="main_app/home.html",
 )
+
+
+def concrete_premises_view(request, num_of_premises):
+    premises = Premises.objects.get(pk=num_of_premises)
+    return render(
+        request,
+        'main_app/premises.html',
+        {
+            'premises': premises,
+        }
+    )
