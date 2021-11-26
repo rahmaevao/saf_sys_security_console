@@ -10,14 +10,16 @@ Home
             <thead>
             <tr>
                 <th>Premises</th>
-                <th>State</th>
+                <th>Guarded</th>
+                <th>Alarm</th>
             </tr>
             </thead>
             <tbody>
             {% for premises in all_premises %}
                 <tr>
                     <td>{{ premises.address }}</td>
-                    <td>{{ premises.state }}</td>
+                    <td>{{ premises.guarded }}</td>
+                    <td>{{ premises.alarm }}</td>
                 </tr>
             {% endfor %}
             </tbody>
