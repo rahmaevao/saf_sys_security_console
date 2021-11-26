@@ -6,26 +6,26 @@ Home
 <h1>All premises</h1>
 
 {% if all_premises %}
-        <table class="all_premises">
-            <thead>
-            <tr>
-                <th>Premises</th>
-                <th>Guarded</th>
-                <th>Alarm</th>
-            </tr>
-            </thead>
-            <tbody>
-            {% for premises in all_premises %}
-                <tr>
-                    <td>{{ premises.address }}</td>
-                    <td>{{ premises.guarded }}</td>
-                    <td>{{ premises.alarm }}</td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-    {% else %}
-        <p>No premises in database. Please contact the administrator</p>
-    {% endif %}
+<table class="my_table">
+    <thead>
+        <tr>
+            <th>Premises</th>
+            <th>Guarded</th>
+            <th>Alarm</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for premises in all_premises %}
+        <tr>
+            <td>{{ premises.address }}</td>
+            <td>{{ premises.guarded }}</td>
+            <td>{{ premises.alarm }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No premises in database. Please contact the administrator</p>
+{% endif %}
 
 {% endblock %}

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import ListView
 from main_app.models import Premises
+from django.http import HttpResponseRedirect
 
 
 class AllPremisesView(ListView):
@@ -27,3 +28,13 @@ def concrete_premises_view(request, num_of_premises):
             'premises': premises,
         }
     )
+
+
+def premises_switch_mode(request, num_of_premises):
+    premises = Premises.objects.get(pk=num_of_premises)  # type: Premises
+    if premises.guarded:
+        premises.disarm()
+    else:
+        premises.arm()
+    premises.save()
+    return HttpResponseRedirect(request.META['HTTP_REFERER'])

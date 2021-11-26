@@ -27,7 +27,7 @@
 }
 
 
-.all_premises th,td {
+.my_table th,td {
     text-align: left;
     padding-right: 15px;
 }

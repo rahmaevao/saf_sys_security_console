@@ -4,6 +4,17 @@
 {% endblock %}
 {% block content %}
 <h1>{{ premises }}</h1>
-<p>Guarded: {{  premises.guarded  }}</p>
-<p>Alarm: {{  premises.alarm  }}</p>
+<p>Guarded: {{ premises.guarded }}</p>
+<p>Alarm: {{ premises.alarm }}</p>
+
+<form action="premises_switch_mode/" method="post">
+    {% csrf_token %}
+    {% if premises.guarded %}
+    <button>Снять с охраны</button>
+    {% else %}
+    <button>Поставить на охрану</button>
+    {% endif %}
+</form>
+
+
 {% endblock %}
