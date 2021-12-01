@@ -17,7 +17,7 @@ Home
     <tbody>
         {% for premises in all_premises %}
         <tr>
-            <td>{{ premises.address }}</td>
+            <td><a href="{% url 'concrete_premises_view' num_of_premises=premises.pk %}">{{ premises.address }}</a></td>
             <td>{{ premises.guarded }}</td>
             <td>{{ premises.alarm }}</td>
         </tr>
